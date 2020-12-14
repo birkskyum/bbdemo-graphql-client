@@ -1,13 +1,10 @@
 {
   "name": "bbdemo-client-web-cra",
   "version": "0.1.0",
-  "private": true,
   "dependencies": {
     "@apollo/client": "^3.3.5",
-    "@reduxjs/toolkit": "^1.5.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
     "@types/jest": "^26.0.15",
     "@types/mathjs": "^6.0.9",
     "@types/node": "^12.0.0",
@@ -15,7 +12,6 @@
     "@types/react-alice-carousel": "^1.15.3",
     "@types/react-dom": "^16.9.8",
     "antd": "^4.9.2",
-    "apollo-link-error": "^1.1.13",
     "axios": "^0.21.0",
     "currency-flags": "^3.1.0",
     "graphql": "^15.4.0",
@@ -24,14 +20,10 @@
     "react-alice-carousel": "^2.1.0",
     "react-currency-flags": "^0.1.2",
     "react-dom": "^17.0.1",
-    "react-redux": "^7.2.2",
     "react-scripts": "4.0.1",
     "react-test-renderer": "^17.0.1",
-    "react-use": "^15.3.4",
-    "redux": "^4.0.5",
     "styled-components": "^5.2.1",
-    "typescript": "^4.0.3",
-    "web-vitals": "^0.2.4"
+    "typescript": "^4.0.3"
   },
   "scripts": {
     "start": "react-scripts start",
