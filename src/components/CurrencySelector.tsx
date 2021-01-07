@@ -1,17 +1,13 @@
 import { useContext } from 'react'
-import { GlobalContext } from '../contexts/GlobalState'
-import { CurrencyContext } from '../contexts/CurrencyState'
+import { GlobalContext, IGlobalContext } from '../contexts/GlobalState'
+import { CurrencyContext, ICurrencyContext } from '../contexts/CurrencyState'
 
 import { Select, Spin } from 'antd'
 import 'antd/dist/antd.css';
 import CurrencyFlag from 'react-currency-flags';
 import styled from 'styled-components'
 
-export interface Currency {
-  name: string,
-  code: string,
-  namePlural: string,
-}
+
 
 const SelectWrapper = styled.div`
   text-align:center;
@@ -23,8 +19,8 @@ const StyledSelect = styled(Select)`
 
 export function CurrencySelector() {
 
-  const globalContext: any = useContext(GlobalContext)
-  const currencyContext: any = useContext(CurrencyContext)
+  const globalContext = useContext(GlobalContext) as IGlobalContext
+  const currencyContext = useContext(CurrencyContext) as ICurrencyContext
   if(currencyContext.currency.loading ) {
     return <Spin />
   }
@@ -45,7 +41,7 @@ export function CurrencySelector() {
     }
     }
     >
-      {globalContext.currencies.data.currencies.map((currency: Currency)=>{
+      {globalContext.currencies.data.currencies.map((currency)=>{
         return <Option key={currency.code} value={currency.code}><CurrencyFlag style={{border: "1px solid #888"}} currency={currency.code} size="sm" />  {currency.namePlural}</Option>
       })}
 

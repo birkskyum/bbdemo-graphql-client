@@ -2,7 +2,7 @@
 import {Spin} from 'antd'
 import 'antd/dist/antd.css';
 import {useContext} from 'react'
-import { GlobalContext } from './contexts/GlobalState';
+import { GlobalContext, IGlobalContext } from './contexts/GlobalState';
 import { CurrencyProvider } from './contexts/CurrencyState';
 import { ProductsList } from './components/ProductsList'
 import { ProductPage } from './components/ProductPage'
@@ -26,7 +26,7 @@ const SpinnerWrapper = styled(Spin)`
 
 export function Main () {
 
-  const context: any = useContext(GlobalContext)
+  const context = useContext(GlobalContext) as IGlobalContext
   const products = useProducts()
 
   if (context.locale.loading || context.currencies.loading || products.loading) {

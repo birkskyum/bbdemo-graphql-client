@@ -1,5 +1,5 @@
 
-import { CurrencyContext } from '../contexts/CurrencyState';
+import { CurrencyContext, ICurrencyContext } from '../contexts/CurrencyState';
 import {useContext} from 'react'
 import { format} from 'mathjs'
 import styled from 'styled-components'
@@ -14,7 +14,7 @@ const StyledPrice = styled.p`
 
 export function ProductPriceTag(props: {priceUSD: number}){
 
-  const context: any = useContext(CurrencyContext)
+  const context = useContext(CurrencyContext) as ICurrencyContext
 
   if (context.exchangeRate.loading) {
     return (<p></p>)

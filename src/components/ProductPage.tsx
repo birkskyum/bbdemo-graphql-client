@@ -70,7 +70,7 @@ export function ProductPage(){
       <ProductImages>
       {
       product.photos.map((photo, index)=>{
-          return <ProductImage ><img key={index} src={photo}  alt="Img" /></ProductImage>
+          return <ProductImage  key={index}><img  src={photo}  alt="Img" /></ProductImage>
         })
       }
       </ProductImages>
