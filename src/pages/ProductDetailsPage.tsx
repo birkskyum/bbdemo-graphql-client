@@ -2,7 +2,7 @@ import { useProducts } from '../hooks/useProducts'
 import styled from 'styled-components'
 import { useLocation, useHistory } from 'react-router-dom'
 import 'react-alice-carousel/lib/alice-carousel.css';
-import {ProductPriceTag} from './ProductPriceTag'
+import {ProductPriceTag} from '../components/PriceTag'
 import { message, Button } from 'antd';
 
 
@@ -50,7 +50,7 @@ const ProductHeader = styled.p`
   text-align: center;
 `
 
-export function ProductPage(){
+export function ProductDetailsPage(){
 
   const history = useHistory()
   const location = useLocation();

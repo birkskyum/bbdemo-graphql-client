@@ -1,6 +1,6 @@
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
-import {ProductPriceTag} from './ProductPriceTag'
+import {ProductPriceTag} from './PriceTag'
 import styled from 'styled-components'
 import { IProduct } from '../hooks/useProducts'
 import {Link} from 'react-router-dom'

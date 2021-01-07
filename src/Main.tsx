@@ -4,8 +4,8 @@ import 'antd/dist/antd.css';
 import {useContext} from 'react'
 import { GlobalContext, IGlobalContext } from './contexts/GlobalState';
 import { CurrencyProvider } from './contexts/CurrencyState';
-import { ProductsList } from './components/ProductsList'
-import { ProductPage } from './components/ProductPage'
+import { ProductListPage } from './pages/ProductListPage'
+import { ProductDetailsPage } from './pages/ProductDetailsPage'
 import { useProducts } from './hooks/useProducts'
 import { CurrencySelector } from './components/CurrencySelector';
 import styled from 'styled-components'
@@ -18,7 +18,7 @@ import {
   useLocation,
   useParams
 } from "react-router-dom";
-import { AddProductForm as AddProduct } from './components/AddProductModal';
+import { AddProductForm as AddProduct } from './pages/AddProductPage';
 
 const SpinnerWrapper = styled(Spin)`
   text-align: center;
@@ -39,10 +39,10 @@ export function Main () {
           <Switch>
             <Route exact path="/">
               <CurrencySelector />
-              <ProductsList products={products.data.products} />
+              <ProductListPage products={products.data.products} />
             </Route>
             <Route path="/product/:id">
-              <ProductPage />
+              <ProductDetailsPage />
             </Route>
             <Route path="/add-product">
               <AddProduct />

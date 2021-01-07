@@ -1,7 +1,7 @@
 import React from 'react'
-import { ProductPriceTag } from './ProductPriceTag';
+import { ProductPriceTag } from '../components/PriceTag';
 import ShallowRenderer from 'react-test-renderer/shallow';
-import {ProductsList} from './ProductsList'
+import {ProductListPage} from './ProductListPage'
 let realUseContext;
 let useContextMock;
 // Setup mock
@@ -34,7 +34,7 @@ const productdata=[{
   }]
 
 
-test('ProductsList', () => {
+test('ProductListPage', () => {
   useContextMock.mockReturnValue({
     exchangeRate:{
       loading:false, 
@@ -54,7 +54,7 @@ test('ProductsList', () => {
   });
 
   const element = new ShallowRenderer().render(
-      <ProductsList products={productdata} />
+      <ProductListPage products={productdata} />
   );
 
   expect(element.props.children.length).toBe(3)

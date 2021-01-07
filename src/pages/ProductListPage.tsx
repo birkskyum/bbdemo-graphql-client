@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { ProductCard } from './ProductCard';
+import { ProductCard } from '../components/ProductCard';
 import {  Button, message } from 'antd'
 import {
   Link, useHistory
@@ -13,7 +13,7 @@ const FlexboxContainer = styled.div`
   align-content: space-evenly;
 `
 
-export function ProductsList(props: {products:any[]}) {
+export function ProductListPage(props: {products:any[]}) {
 
   const history = useHistory()
   return (

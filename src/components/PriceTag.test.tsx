@@ -1,5 +1,5 @@
 import React from 'react'
-import { ProductPriceTag } from './ProductPriceTag';
+import { ProductPriceTag } from './PriceTag';
 import ShallowRenderer from 'react-test-renderer/shallow';
 
 let realUseContext;
@@ -15,7 +15,7 @@ afterEach(() => {
 });
 
 
-test('ProductPriceTag loading', () => {
+test('PriceTag loading', () => {
   useContextMock.mockReturnValue({exchangeRate:{loading:true}});
   const element = new ShallowRenderer().render(
       <ProductPriceTag priceUSD={5.23} />
