@@ -46,9 +46,13 @@ test('ProductCard', ( ) => {
   );
 
   const carousel = element.props.children[0]
-  expect(carousel.props.items[0].props.style.height).toBe("200px")
+  console.log(JSON.stringify(carousel))
 
-  const imageElement = carousel.props.items[0].props.children
+  const linkElement = carousel.props.items[0]
+
+  expect(linkElement.props.children.props.style.height).toBe("200px")
+
+  const imageElement = linkElement.props.children.props.children
   expect(imageElement.type).toBe("img")
   expect(imageElement.props.src).toBe("photo54.png")
  
