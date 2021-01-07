@@ -22,3 +22,17 @@ export function useProducts() {
   
   return useQuery(PRODUCTS)
 }
+
+// export function useProduct(id) {
+
+//   const PRODUCT = gql`
+//     query getProduct(id) {
+//       id, 
+//       name, 
+//       priceUSD, 
+//       photos
+//     }
+//   `
+  
+//   return useQuery(PRODUCT)
+// }

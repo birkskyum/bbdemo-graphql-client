@@ -5,9 +5,19 @@ import {useContext} from 'react'
 import { GlobalContext } from './contexts/GlobalState';
 import { CurrencyProvider } from './contexts/CurrencyState';
 import { ProductsList } from './components/ProductsList'
+import { ProductPage } from './components/ProductPage'
 import { useProducts } from './hooks/useProducts'
 import { CurrencySelector } from './components/CurrencySelector';
 import styled from 'styled-components'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useHistory,
+  useLocation,
+  useParams
+} from "react-router-dom";
 
 const SpinnerWrapper = styled(Spin)`
   text-align: center;
@@ -24,8 +34,17 @@ export function Main () {
   } else {
     return (
       <CurrencyProvider>
-        <CurrencySelector />
-        <ProductsList products={products.data.products} />
+        <Router>
+          <Switch>
+            <Route exact path="/">
+              <CurrencySelector />
+              <ProductsList products={products.data.products} />
+            </Route>
+            <Route path="/product/:id">
+              <ProductPage />
+            </Route>
+          </Switch>
+        </Router>
       </CurrencyProvider>
     )
   }
