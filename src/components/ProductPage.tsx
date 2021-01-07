@@ -1,9 +1,11 @@
-import { IProduct, useProducts } from '../hooks/useProducts'
+import { useProducts } from '../hooks/useProducts'
 import styled from 'styled-components'
-import { useLocation } from 'react-router-dom'
-import AliceCarousel from 'react-alice-carousel';
+import { useLocation, useHistory } from 'react-router-dom'
 import 'react-alice-carousel/lib/alice-carousel.css';
 import {ProductPriceTag} from './ProductPriceTag'
+import { message, Button } from 'antd';
+
+
 
 const StyledProductPage = styled.div`
 display: flex;
@@ -34,6 +36,8 @@ const ProductImages = styled.div`
   
 `
 
+
+
 const ProductImage = styled.div`
 margin-bottom: 50px;
 width:240px;
@@ -48,6 +52,7 @@ const ProductHeader = styled.p`
 
 export function ProductPage(){
 
+  const history = useHistory()
   const location = useLocation();
   const urlpath = location.pathname.split("/")
   const productID = urlpath[urlpath.length - 1];
@@ -61,10 +66,17 @@ export function ProductPage(){
     return product.id == productID
   })
 
-  console.log(product)
+  function deleteProduct(e) {
+    setTimeout(()=>{
+      history.push('/')
+    }, 5000)
+    message.info('You have requested the product to be deleted. Redirecting in 5 sec.');
+  }
 
 
   return (
+    <>
+    <Button onClick={(e)=>{deleteProduct(e)}} type="primary" block danger>Delete product</Button>
     <StyledProductPage>
     <ProductWrapper key={product.id}>
       <ProductImages>
@@ -79,6 +91,10 @@ export function ProductPage(){
         <ProductHeader>{product.name}</ProductHeader>
       
     </ProductWrapper>
+
+
     </StyledProductPage>
+
+    </>
   )
 } 

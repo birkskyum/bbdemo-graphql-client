@@ -18,6 +18,7 @@ import {
   useLocation,
   useParams
 } from "react-router-dom";
+import { AddProductForm as AddProduct } from './components/AddProductModal';
 
 const SpinnerWrapper = styled(Spin)`
   text-align: center;
@@ -42,6 +43,9 @@ export function Main () {
             </Route>
             <Route path="/product/:id">
               <ProductPage />
+            </Route>
+            <Route path="/add-product">
+              <AddProduct />
             </Route>
           </Switch>
         </Router>
